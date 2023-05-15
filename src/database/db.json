@@ -1,0 +1,62 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "teste@email.com",
+      "password": "teste@123"
+    }
+  ],
+  "infoAbout": [
+    {
+      "foto": "https://raw.githubusercontent.com/wancruz/site-wanderson/master/src/images/pixlr-bg-result%20(1).png",
+      "resumo": "Estou em transição de carreira com forte interesse na área de tecnologia e desenvolvimento web. Tenho experiência na área de engenharia e processo, e atualmente estou empenhado em aprimorar minhas habilidades em programação, banco de dados e frameworks. Realizo diversos cursos e treinamentos online em linguagens como JavaScript, TypeScript, React, Node, além de ter participado de eventos e encontros da comunidade de desenvolvimento web. Proativo, organizado e comprometido com o aprendizado constante, estou em busca de oportunidades para ingressar no mercado de TI e contribuir com projetos de desenvolvimento web.\"",
+      "id": 1
+    }
+  ],
+  "infoSkill": [
+    {
+      "id": 1,
+      "name": "Html",
+      "image": "https://raw.githubusercontent.com/wancruz/site-wanderson/master/src/images/732212.png",
+      "tipo": "profissional"
+    },
+    {
+      "id": 2,
+      "name": "Css",
+      "image": "https://raw.githubusercontent.com/wancruz/site-wanderson/master/src/images/css-3.png",
+      "tipo": "profissional"
+    },
+    {
+      "id": 3,
+      "name": "JavaScript",
+      "image": "https://raw.githubusercontent.com/wancruz/site-wanderson/master/src/images/js%20(1).png",
+      "tipo": "aprimorando"
+    },
+    {
+      "id": 4,
+      "name": "React",
+      "image": "https://raw.githubusercontent.com/wancruz/site-wanderson/master/src/images/react%20(1).png",
+      "tipo": "aprimorando"
+    },
+    {
+      "id": 5,
+      "name": "Node",
+      "image": "https://raw.githubusercontent.com/wancruz/site-wanderson/master/src/images/nodejs.png",
+      "tipo": "aprimorando"
+    }
+  ],
+  "infoProject": [
+    {
+      "id": 1,
+      "link": "https://new-site-three.vercel.app",
+      "image": "https://images.unsplash.com/photo-1518717758536-85ae29035b6d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "title": "Projeto - 1"
+    },
+    {
+      "id": 2,
+      "link": "https://cronometro-dark.vercel.app",
+      "image": "https://images.unsplash.com/photo-1495364141860-b0d03eccd065?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80",
+      "title": "Projeto - 2"
+    }
+  ]
+}
