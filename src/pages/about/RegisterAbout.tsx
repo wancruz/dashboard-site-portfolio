@@ -25,6 +25,7 @@ const RegisterAbout: React.FC = () => {
 
 
   const initialValues: InfoAbout = {
+    id: 1,
     foto: '',
     resumo: '',
   };
