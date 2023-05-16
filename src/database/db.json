@@ -6,7 +6,13 @@
       "password": "teste@123"
     }
   ],
-  "infoAbout": [],
+  "infoAbout": [
+    {
+      "foto": "https://raw.githubusercontent.com/wancruz/site-wanderson/master/src/images/pixlr-bg-result%20(1).png",
+      "resumo": "dsadasda",
+      "id": 1
+    }
+  ],
   "infoSkill": [],
   "infoProject": [
     {

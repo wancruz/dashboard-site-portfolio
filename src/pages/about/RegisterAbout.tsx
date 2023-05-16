@@ -57,31 +57,42 @@ const RegisterAbout: React.FC = () => {
       fetchInfoAbout();
     }, []);
 
-    const [showSaveButton, setShowSaveButton] = useState(true);
 
+    const [showSaveButton, setShowSaveButton] = useState(
+      localStorage.getItem('showSaveButton') === 'true' ? false : true
+    );
+    
     const onSubmit = async (values: InfoAbout) => {
       try {
         await createOrUpdateInfoAbout(values);
         setInfoAbout(values);
         setShowSaveButton(false); // oculta o botão após salvar/atualizar os dados
+        localStorage.setItem('showSaveButton', 'true'); // salva o estado da variável no localStorage
         alert('Formulário enviado com sucesso!');
       } catch (error) {
         console.error('Erro ao enviar formulário:', error);
         alert('Ocorreu um erro ao enviar formulario. Tente novamente.');
       }
     };
-
+    
     const handleDelete = async () => {
       try {
         await deleteInfoAbout();
         setInfoAbout(undefined);
         setShowSaveButton(true);
+        localStorage.setItem('showSaveButton', 'false'); // salva o estado da variável no localStorage
         alert("Informações deletadas com sucesso!");
       } catch (error) {
         console.error("Erro ao deletar informações", error);
         alert("Ocorreu um erro ao deletar as informações. Tente novamente.")
       }
     };
+    
+    useEffect(() => {
+      localStorage.getItem('showSaveButton') === 'true'
+        ? setShowSaveButton(false)
+        : setShowSaveButton(true)
+    }, []);
 
     return (
       <div className={styles.formWrapper}>
