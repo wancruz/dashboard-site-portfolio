@@ -16,6 +16,9 @@ import Button from "../../components/common/Button";
 import Title from "../../components/common/Title/Title";
 
 import Form from "../../components/forms/Form";
+import { Axios, AxiosError } from "axios";
+
+
 
 
 
@@ -25,14 +28,12 @@ const RegisterAbout: React.FC = () => {
 
 
   const initialValues: InfoAbout = {
-    id: 1,
     foto: '',
     resumo: '',
   };
 
   {
     const validationSchema = Yup.object().shape({
-      id: Yup.number(),
       foto: Yup.string().required('Campo obrigatório'),
       resumo: Yup.string().required('Campo obrigatório'),
     });
@@ -42,7 +43,13 @@ const RegisterAbout: React.FC = () => {
         const infoAbout = await getInfoAbout();
         setInfoAbout(infoAbout);
       } catch (error) {
-        console.error('Erro ao buscar informação', error);
+        if (error instanceof AxiosError) {
+          if (error.response?.status !== 400) {
+            console.error("Erro ao buscar informações:", error);
+          }
+        } else {
+          console.error("Ocorreu um erro desconhecido ao buscar informações:", error);
+        }
       }
     };
     // Hook para gerenciar vida do componente, serve para quando rendenizar pela priemira vez - useEffect
@@ -50,26 +57,25 @@ const RegisterAbout: React.FC = () => {
       fetchInfoAbout();
     }, []);
 
-    const onSubmit = async (values: InfoAbout, { resetForm }: { resetForm: () => void }) => {
-      //Logica para envio para o backend
-      // Estrututa try/cat Ela diz que se fizer uma requisição no servidor é der errado, então faça isso.
+    const [showSaveButton, setShowSaveButton] = useState(true);
 
+    const onSubmit = async (values: InfoAbout) => {
       try {
         await createOrUpdateInfoAbout(values);
         setInfoAbout(values);
+        setShowSaveButton(false); // oculta o botão após salvar/atualizar os dados
         alert('Formulário enviado com sucesso!');
-      }
-      catch (error) {
+      } catch (error) {
         console.error('Erro ao enviar formulário:', error);
         alert('Ocorreu um erro ao enviar formulario. Tente novamente.');
       }
-
     };
 
     const handleDelete = async () => {
       try {
-        await deleteInfoAbout ();
+        await deleteInfoAbout();
         setInfoAbout(undefined);
+        setShowSaveButton(true);
         alert("Informações deletadas com sucesso!");
       } catch (error) {
         console.error("Erro ao deletar informações", error);
@@ -80,9 +86,9 @@ const RegisterAbout: React.FC = () => {
     return (
       <div className={styles.formWrapper}>
 
-         <Form
-          initialValues={initialValues}
-          enableReinitialize
+        <Form
+          initialValues={infoAbout || initialValues}
+          enableReinitialize={true}
           validationSchema={validationSchema}
           onSubmit={onSubmit}>
 
@@ -105,25 +111,29 @@ const RegisterAbout: React.FC = () => {
                 touched={touched.resumo}
               />
 
-              <Button type="submit">Salvar</Button>
+              {showSaveButton && (
+                <Button type="submit">
+                  Salvar
+                </Button>
+              )}
             </>
           )}
 
-        </Form> 
+        </Form>
 
         {infoAbout &&
-            <div className={styles.cardContainer}>
-              <CardAbout infoAbout={infoAbout} />
+          <div className={styles.cardContainer}>
+            <CardAbout infoAbout={infoAbout} />
 
-              <Button
-                type="button"
-                onClick={handleDelete}
-                red
-              >Deletar
-              </Button>
+            <Button
+              type="button"
+              onClick={handleDelete}
+              red
+            >Deletar
+            </Button>
 
-            </div>
-          }
+          </div>
+        }
       </div>
     );
   };

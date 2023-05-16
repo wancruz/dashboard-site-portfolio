@@ -6,45 +6,8 @@
       "password": "teste@123"
     }
   ],
-  "infoAbout": [
-    {
-      "foto": "https://raw.githubusercontent.com/wancruz/site-wanderson/master/src/images/pixlr-bg-result%20(1).png",
-      "resumo": "Estou em transição de carreira com forte interesse na área de\ntecnologia e desenvolvimento web. Tenho experiência na área de\nengenharia e processo, e atualmente estou empenhado em aprimorar\nminhas habilidades em programação, banco de dados e frameworks.\nRealizo diversos cursos e treinamentos online em linguagens como\nJavaScript, TypeScript, React, Node, além de ter participado de eventos\ne encontros da comunidade de desenvolvimento web. Proativo,\norganizado e comprometido com o aprendizado constante, estou em\nbusca de oportunidades para ingressar no mercado de TI e contribuir\ncom projetos de desenvolvimento web",
-      "id": 1
-    }
-  ],
-  "infoSkill": [
-    {
-      "id": 1,
-      "name": "Html",
-      "image": "https://raw.githubusercontent.com/wancruz/site-wanderson/master/src/images/732212.png",
-      "tipo": "profissional"
-    },
-    {
-      "id": 2,
-      "name": "Css",
-      "image": "https://raw.githubusercontent.com/wancruz/site-wanderson/master/src/images/css-3.png",
-      "tipo": "profissional"
-    },
-    {
-      "id": 3,
-      "name": "JavaScript",
-      "image": "https://raw.githubusercontent.com/wancruz/site-wanderson/master/src/images/js%20(1).png",
-      "tipo": "aprimorando"
-    },
-    {
-      "id": 4,
-      "name": "React",
-      "image": "https://raw.githubusercontent.com/wancruz/site-wanderson/master/src/images/react%20(1).png",
-      "tipo": "aprimorando"
-    },
-    {
-      "id": 5,
-      "name": "Node",
-      "image": "https://raw.githubusercontent.com/wancruz/site-wanderson/master/src/images/nodejs.png",
-      "tipo": "aprimorando"
-    }
-  ],
+  "infoAbout": [],
+  "infoSkill": [],
   "infoProject": [
     {
       "id": 1,

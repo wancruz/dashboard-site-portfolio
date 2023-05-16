@@ -9,7 +9,7 @@ import * as Yup from "yup";
 
 interface FormProps<T> {
   initialValues: T;
-  validationSchema: Yup.ObjectSchema<Partial<T>>;
+  validationSchema: Yup.ObjectSchema<Omit<Partial<T>, "id">>;
   enableReinitialize?: boolean;
 
   //Estou colocando um atributo de função como atributo da interface. Por isso coloco parametros que recebe e qual retorno. 
@@ -24,7 +24,7 @@ const Form = <T extends FormikValues>({ initialValues, validationSchema, enableR
 
       <Formik
         initialValues={initialValues}
-        enableReinitialize={enableReinitialize}
+        enableReinitialize={true}
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >

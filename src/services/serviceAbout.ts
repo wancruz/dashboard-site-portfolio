@@ -14,12 +14,12 @@ export const createInfoAbout = async (infoAbout: InfoAbout): Promise<InfoAbout> 
     return response.data;
 }
 
- export async function updateInfoAbout(infoAbout:InfoAbout): Promise<InfoAbout> {
+ export const updateInfoAbout = async (infoAbout:InfoAbout): Promise<InfoAbout> => {
     const response =  await api.put<InfoAbout>('/infoAbout/1', infoAbout);
     return response.data;
  }
 
- export async function getInfoAbout(): Promise<InfoAbout> {
+ export const getInfoAbout = async (): Promise<InfoAbout> => {
    const response = await api.get<InfoAbout>('/infoAbout/1');
    return response.data;
  }
@@ -27,8 +27,8 @@ export const createInfoAbout = async (infoAbout: InfoAbout): Promise<InfoAbout> 
  export const createOrUpdateInfoAbout = async (infoAbout: InfoAbout): Promise<InfoAbout> => {
   if (infoAbout.id) {
          return await updateInfoAbout(infoAbout);
-} else { return await createInfoAbout(infoAbout);
-   
+} else { 
+   return await createInfoAbout(infoAbout);  
 }
 }
 
