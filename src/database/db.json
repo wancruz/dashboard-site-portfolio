@@ -13,7 +13,38 @@
       "id": 1
     }
   ],
-  "infoSkill": [],
+  "infoSkill": [
+    {
+      "id": 1,
+      "name": "Html",
+      "image": "https://raw.githubusercontent.com/wancruz/site-wanderson/master/src/images/732212.png",
+      "tipo": "profissional"
+    },
+    {
+      "id": 2,
+      "name": "CSS",
+      "image": "https://raw.githubusercontent.com/wancruz/site-wanderson/master/src/images/css-3.png",
+      "tipo": "profissional"
+    },
+    {
+      "id": 3,
+      "name": "JavaScript",
+      "image": "https://raw.githubusercontent.com/wancruz/site-wanderson/master/src/images/js%20(1).png",
+      "tipo": "profissional"
+    },
+    {
+      "id": 4,
+      "name": "React",
+      "image": "https://raw.githubusercontent.com/wancruz/site-wanderson/master/src/images/react%20(1).png",
+      "tipo": "aprimorando"
+    },
+    {
+      "id": 5,
+      "name": "Node",
+      "image": "https://raw.githubusercontent.com/wancruz/site-wanderson/master/src/images/nodejs.png",
+      "tipo": "aprimorando"
+    }
+  ],
   "infoProject": [
     {
       "id": 1,

@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 import { InfoProject, deleteInfoProject, getInfoProject, updateInfoProject } from "../../../services/serviceProjects";
 
+import { Table,Column } from "../../../components/common/Table";
+
 
 
 interface ListProject {
@@ -33,10 +35,9 @@ useEffect(() => {
   fetchInfoProject();
 },[]);
 
-const handleDelet = async (id: number) => {
-
+const handleDelet = async (infoProject: InfoProject) => {
   try {
-    await deleteInfoProject(id);
+    await deleteInfoProject(infoProject.id);
     fetchInfoProject();
     alert("Deletou o Projeto!")
   }catch(error) {
@@ -49,32 +50,21 @@ const handleEdit =  (infoProject: InfoProject) => {
   navigate("/projects/cadastrar", { state: infoProject})
 };
 
+const columns: Column<InfoProject>[] = [
+  {header: "Titulo", accessor: "title"},
+  {header: "Imagem", accessor: "image"},
+  {header: "Link", accessor: "link"},
+];
+
+
   return (
 
-     <table className={styles.table}>
-      <thead>
-        <tr>
-           <th>Título</th>
-           <th>Imagem</th>
-           <th>Link</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        {infoProject.map((infoProject, index)  => (
-        <tr key={index}>
-          <td>{infoProject.title}</td>
-          <td><img src={infoProject.image} alt={infoProject.title} className={styles.image} /></td>
-          <td><a href={infoProject.link} target="_blank" rel="noreferrer">{infoProject.link}</a></td>
-          <td>
-               <button onClick={() => handleEdit(infoProject)}>Editar</button>
-               <button onClick={() => handleDelet(infoProject.id)}>Excluir</button>
-        </td>
-        </tr>
-        ))}
-      </tbody>
-    </table>
+   <Table 
+    columns={columns}
+    data={infoProject}
+    handleDelete={handleDelet}
+    handleEdite={handleEdit} 
+    />
   );
 };
 

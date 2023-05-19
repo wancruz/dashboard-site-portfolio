@@ -6,6 +6,8 @@ import styles from "./SkillList.module.css";
 
 import { InfoSkill, deleteInfoSkill, getInfoSkill, updateInfoSkill } from "../../../services/serviceSkill";
 
+import { Table,Column } from "../../../components/common/Table";
+
 
 interface ItemList {
   name: string;
@@ -32,10 +34,10 @@ const SkillList: React.FC = () => {
     fetchInfoSkill();
   }, []);
 
-  const handleDelet = async (id: number) => {
+  const handleDelet = async (infoSkill: InfoSkill) => {
 
     try {
-      await deleteInfoSkill(id);
+      await deleteInfoSkill(infoSkill.id);
       fetchInfoSkill();
       alert('Habilidade deletada com sucesso!');
     } catch (error) {
@@ -49,30 +51,20 @@ const SkillList: React.FC = () => {
     navigate("/skill/cadastrar", { state: itemInfoSkill })
   };
 
+  const columns: Column<InfoSkill>[] = [
+    {header: "Nome", accessor: "name"},
+    {header: "Imagem", accessor: "image"},
+    {header: "Tipo", accessor: "tipo"},
+  ];
+
   return (
-    <table className={styles.table}>
-      <thead>
-        <tr>
-          <th>Titulo</th>
-          <th>Imagem</th>
-          <th>Tipo</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-      <tbody>
-        {infoSkill.map((infoSkill, index) => (
-          <tr key={index}>
-            <td>{infoSkill.name}</td>
-            <td><img src={infoSkill.image} alt={infoSkill.image} className={styles.image} /></td>
-            <td>{infoSkill.tipo}</td>
-            <td>
-              <button onClick={() => handleEdit(infoSkill)}>Editar</button>
-              <button onClick={() => handleDelet(infoSkill.id)}>Excluir</button>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+
+    <Table
+     columns={columns}
+     data={infoSkill}
+     handleEdite={handleEdit}
+     handleDelete={handleDelet}
+     />
   );
 };
 
